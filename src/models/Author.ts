@@ -1,7 +1,6 @@
-// @ts-ignore
-import {authorDTO} from "src/models/AuthorDTO";
+import {authorDTO} from "./AuthorDTO";
 
-export class Author {
+export default class Author {
 
     public firstName: string;
 

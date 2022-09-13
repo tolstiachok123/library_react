@@ -1,15 +1,16 @@
 import { useEffect, useState } from 'react';
-import { authorService } from 'src/services/AuthorService';
-import { Author } from '../models/Author';
+import  Author  from '../models/Author.ts';
 import { AuthorList } from '../components/AuthorList';
+import { AuthorService } from '../services/AuthorService.ts';
 
-export const AuthorListPage = async () => {
+const AuthorListPage = () => {
 
-  const [authors, setAuthors] = useState<Author[]>([]);
+  const [authors, setAuthors] = useState([]);
 
-  const loadAuthors: () => void = async () => {
-    const authors: Author[] = await authorService.getAuthors();
-    setAuthors(authors)
+  const loadAuthors = async () => {
+    const authorService: AuthorService = new AuthorService();
+    const authors1: Author[] = await authorService.getAuthors();
+    setAuthors(authors1)
   }
 
   useEffect(() => {
@@ -19,3 +20,5 @@ export const AuthorListPage = async () => {
   return <AuthorList props={authors} />;
 
 }
+
+export default AuthorListPage;

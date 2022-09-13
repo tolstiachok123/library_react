@@ -1,6 +1,9 @@
-import {Author} from "../models/Author";
-import {fetchRequest} from "./FetchUtils";
+
+// @ts-ignore
+import {fetchRequest} from "./FetchUtils.ts";
 import {authorDTO} from "../models/AuthorDTO";
+// @ts-ignore
+import Author from "../models/Author.ts";
 
 export class AuthorService {
 
