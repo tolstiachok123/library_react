@@ -1,4 +1,3 @@
-
 // @ts-ignore
 import {fetchRequest} from "./FetchUtils.ts";
 import {authorDTO} from "../models/AuthorDTO";
@@ -10,12 +9,16 @@ export class AuthorService {
     private baseUrl: string;
 
     constructor(baseUrl: string) {
-        this.baseUrl = baseUrl;
+        this.baseUrl = 'localhost:8088/api/authors/';
     }
 
     public async getAuthors(): Promise<Author[]> {
         const url = this.baseUrl;
-        const {content: authorsDTO}: {content: Author[]} = await fetchRequest.get(url);
+        // @ts-ignore
+        const {content: authorsDTO}: {content: Author[]} = await fetch(url,{
+            method:'get',
+            credentials: 'include'
+        })
 
         const authors = authorsDTO.map((authorsElement: authorDTO) => {
             return new Author(authorsElement);

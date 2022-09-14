@@ -42,5 +42,7 @@
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0"
-  }
+  },
+  "homepage": ".",
+  "proxy": "http://localhost:3000"
 }
