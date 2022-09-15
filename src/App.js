@@ -3,6 +3,7 @@ import Register from "./components/register";
 import Login from "./components/login";
 import * as routes from './constants/routes';
 import AuthorListPage from './pages/AuthorListPage';
+import React from 'react';
 
 export default function App() {
 
