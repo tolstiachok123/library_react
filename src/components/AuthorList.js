@@ -4,17 +4,15 @@ import React from 'react';
 
 export const AuthorList = (authors) => {
 
-  const list = authors.props;
-
   return(
     <Container style={{ padding: 10 }}>
       <h1>Author list</h1>
       <Card.Group itemsPerRow={4}>
-        {list.map((author) => (
+        {authors.length ? authors?.map((author) => (
           <AuthorCard
             props={author}
           />
-        ))}
+        )) : <p>loading...</p>}
       </Card.Group>
     </Container>
   );

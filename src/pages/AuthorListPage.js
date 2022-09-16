@@ -7,17 +7,15 @@ const AuthorListPage = () => {
 
   const [authors, setAuthors] = useState([]);
 
-  const loadAuthors = async () => {
+  const loadAuthors =  () => {
     const authorService: AuthorService = new AuthorService();
-    const authors1: Author[] = await authorService.getAuthors();
-    setAuthors(authors1)
+    authorService.getAuthors().then(r => setAuthors(r));
   }
 
   useEffect(() => {
     loadAuthors();
   }, []);
-
-  return(<AuthorList props={authors} />);
+  return <AuthorList authors={authors} />;
 
 }
 

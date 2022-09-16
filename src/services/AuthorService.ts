@@ -1,6 +1,5 @@
 // @ts-ignore
 import Author from '../models/Author.ts';
-import {authorDTO} from '../models/AuthorDTO';
 
 export class AuthorService {
 
@@ -8,23 +7,19 @@ export class AuthorService {
     user = JSON.parse(localStorage.getItem("user"));
     token = this.user.token;
 
-    constructor(baseUrl: string) {
+    constructor() {
         this.baseUrl = 'http://localhost:8088/api/authors/';
     }
 
     public async getAuthors(): Promise<Author[]> {
         const url = this.baseUrl;
         // @ts-ignore
-        const {content: authorsDTO}: {content: Author[]} = await fetch(url,{
+        return await fetch(url, {
 
             headers: {
                 Authorization: `Bearer ${this.token}`
             }
-        })
-
-        return authorsDTO.map((authorsElement: authorDTO) => {
-            return new Author(authorsElement);
-        });
+        }).then(res => res.clone().json());
     }
 
 }
