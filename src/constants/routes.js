@@ -1,3 +1,4 @@
+export const BACKEND_BASE_URL = 'http://localhost:8088';
 export const HOME = '/';
 export const BOOK_LIST = '/api/books';
 export const BOOK_DETAILS = '/api/books/:id';
