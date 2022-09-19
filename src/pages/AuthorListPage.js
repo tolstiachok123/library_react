@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import  Author  from '../models/Author.ts';
 import { AuthorList } from '../components/AuthorList';
 import { AuthorService } from '../services/AuthorService.ts';
 
@@ -15,8 +14,8 @@ const AuthorListPage = () => {
   useEffect(() => {
     loadAuthors();
   }, []);
-  return <AuthorList authors={authors} />;
 
+  return authors.length !== 0 ? <AuthorList authors={authors} /> : <p>loading</p>;
 }
 
 export default AuthorListPage;

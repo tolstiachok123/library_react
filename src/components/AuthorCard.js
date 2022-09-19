@@ -1,7 +1,7 @@
 import { Card } from 'semantic-ui-react';
 import React from 'react';
 
-export const AuthorCard = (author) => {
+export const AuthorCard = ({ author }) => {
   return(
     <Card style={{ cursor: 'pointer' }}>
       <Card.Content textAlign="center">

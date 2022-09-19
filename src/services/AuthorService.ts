@@ -19,7 +19,7 @@ export class AuthorService {
             headers: {
                 Authorization: `Bearer ${this.token}`
             }
-        }).then(res => res.clone().json());
+        }).then(res => res.json());
     }
 
 }
