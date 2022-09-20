@@ -1,8 +1,9 @@
 // @ts-ignore
 import Author from '../models/Author.ts';
 // @ts-ignore
-import * as routes from './constants/routes';
-import { LocalStorageService } from "./LocalStorageService";
+import * as routes from './../constants/routes';
+// @ts-ignore
+import LocalStorageService from './LocalStorageService.ts';
 
 export class AuthorService {
 
@@ -19,7 +20,7 @@ export class AuthorService {
 
     public async getAuthors(): Promise<Author[]> {
         // @ts-ignore
-        return await fetch(authorListUrl, {
+        return await fetch(this.authorListUrl, {
 
             headers: {
                 Authorization: `Bearer ${this.token}`
@@ -27,4 +28,12 @@ export class AuthorService {
         }).then(res => res.json());
     }
 
+    public async getAuthor({ id }): Promise<Author> {
+        return await fetch(this.authorUrl+id, {
+
+            headers: {
+                Authorization: `Bearer ${this.token}`
+            }
+        }).then(res => res.json());
+    }
 }

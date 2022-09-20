@@ -6,7 +6,7 @@ const AuthorListPage = () => {
 
   const [authors, setAuthors] = useState([]);
 
-  const loadAuthors =  () => {
+  const loadAuthors = () => {
     const authorService: AuthorService = new AuthorService();
     authorService.getAuthors().then(r => setAuthors(r));
   }
