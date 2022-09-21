@@ -29,7 +29,7 @@ export class AuthorService {
     }
 
     public async getAuthor({ id }): Promise<Author> {
-        return await fetch(this.authorUrl+id, {
+        return await fetch(this.authorListUrl+id, {
 
             headers: {
                 Authorization: `Bearer ${this.token}`
