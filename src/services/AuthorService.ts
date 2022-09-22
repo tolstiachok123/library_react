@@ -36,4 +36,14 @@ export class AuthorService {
             }
         }).then(res => res.json());
     }
+
+    public async deleteAuthor( id ): Promise<void> {
+        // @ts-ignore
+        return await fetch(this.authorListUrl+id, {
+            method: 'DELETE',
+            headers: {
+                Authorization: `Bearer ${this.token}`
+            }
+        });
+    }
 }
