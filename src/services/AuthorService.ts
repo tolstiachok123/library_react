@@ -46,4 +46,14 @@ export class AuthorService {
             }
         });
     }
+
+    public async updateAuthor( author ): Promise<Author> {
+        return await fetch(this.authorListUrl+author.id, {
+            method: 'PUT',
+            headers: {
+                Authorization: `Bearer ${this.token}`
+            },
+            body: author
+        });
+    }
 }

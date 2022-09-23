@@ -2,7 +2,7 @@ import { Card, Container } from 'semantic-ui-react';
 import { AuthorCard } from './AuthorCard';
 import React from 'react';
 
-export const AuthorList = ({ authors, getAuthor }) => {
+export const AuthorList = ({ authors }) => {
 
   return(
     <Container style={{ padding: 10 }}>
