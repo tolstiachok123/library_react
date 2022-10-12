@@ -48,12 +48,14 @@ export class AuthorService {
     }
 
     public async updateAuthor( author ): Promise<Author> {
+        console.log(JSON.stringify(author));
         return await fetch(this.authorListUrl+author.id, {
             method: 'PUT',
             headers: {
-                Authorization: `Bearer ${this.token}`
+                Authorization: `Bearer ${this.token}`,
+                'Content-Type': 'application/json',
             },
-            body: author
+            body: JSON.stringify(author)
         });
     }
 }
